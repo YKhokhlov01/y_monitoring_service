@@ -1,14 +1,11 @@
 const Endpoints = {
     AUTH:{
-     LOGIN:'/auth/login',
-     CONTROL:'/control',
-     
-     //LOGOUT:'/logout',
+     LOGIN:'/auth/login',   
      PROFILE:'/profile',
      HOME:'/home',
      MAP:'/map',
      DEVICE:'/devices/',
-     SENSORS:'/sensors',
+     SENSORS:'/sensors/',
      SENSOR: '/sensor/',
      SENSORVALUE: '/sensor-values',
      AUTH:'/auth/profile' 

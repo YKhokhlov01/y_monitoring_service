@@ -40,7 +40,7 @@ const Auth = ({ accessToken, setAccessToken, username, setUsername }: IAuth) => 
     const [errorLogin, setErrorLogin] = useState('');
     const [isHello, setisHello] = useState(false);
     // Основная функция Логина
-    const onSubmit: SubmitHandler<Inputs> = async (data) => {        
+    const onSubmit: SubmitHandler<Inputs> = async (data) => {
         setErrorLogin('')
         let start = ''
         await axios.post(ApiUrl + Endpoints.AUTH.LOGIN, {
@@ -58,7 +58,6 @@ const Auth = ({ accessToken, setAccessToken, username, setUsername }: IAuth) => 
             setErrorLogin(error.response.data)
         })
         //Запуск дополнительного приветствия и тайминга на переход на страницу мониторинга
-        console.log('start1', start)
         if (start.length > 0) {
             console.log('start', start)
             setisHello(true)
@@ -74,8 +73,7 @@ const Auth = ({ accessToken, setAccessToken, username, setUsername }: IAuth) => 
         localStorage.accessToken = '';
         localStorage.name = '';
         localStorage.setItem('checked', JSON.stringify(false));
-    };
-    console.log('accessToken', accessToken)
+    };  
     return (
         <>
             <div className="flex min-h-full w-full items-start justify-center py-12 px-4 sm:px-6 lg:px-8">

@@ -4,7 +4,7 @@ import { UserIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 
 const navigation = [
-  { name: "Мониторинг", to: "/home", current: false },
+  { name: "Мониторинг", to: "/", current: false },
   { name: "История", to: "/login", current: false },
   { name: "Управление", to: "/control", current: false },
   { name: "Карта", to: "/map", current: false },];
@@ -14,17 +14,17 @@ function classNames(...classes: any[]) {
 
 const Navigation = () => {
   return (
-    <Disclosure as="nav" className=" flex w-4/5 items-center justify-between ">
+    <Disclosure as="nav" className=" flex w-full items-center justify-around ">
       {({ open }) => (
         <>
-          <div className="max-w-full w-full mx-auto flex justify-between px-2 sm:px-6 lg:px-8">
-            <div className="relative flex w-full justify-between content-center ">
-             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+          <div className="max-w-full w-full mx-auto flex justify-around px-2 sm:px-6 lg:px-8">
+            <div className="relative flex w-full justify-around content-center ">
+             <div className="absolute inset-y-0 left-0 flex items-center justify-around sm:hidden">
                 {/* Mobile menu button*/}
               </div>
-              <div className="flex w-4/5 items-center justify-between mx-auto  ">
-                <div className=" hidden sm:block sm:ml-6">
-                  <div className="flex space-x-16">
+              <div className="flex w-10/12 items-center justify-between mx-auto  ">
+                <div className=" hidden sm:block w-10/12  justify-center sm:ml-6">
+                  <div className="flex  justify-around">
                     {navigation.map((item) => (
                       <Link
                         key={item.name}
@@ -43,7 +43,7 @@ const Navigation = () => {
                   </div>
                 </div>
               </div>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              <div className="absolute inset-y-0 right-0 flex w-2/12 items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 {/* Profile dropdown */}
                 <Menu as="div" className="ml-3 relative">
                   <div>
