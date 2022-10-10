@@ -6,6 +6,7 @@ import Control from "./control/Control";
 import MapsDevice from "./maps/MapsDevice";
 //import useAxiosGetDevice from "../hooks/useAxiosGetDevice";
 import useAxiosGet from "../hooks/useAxoisGet";
+
 /*
 type Devices = {
   id: number;

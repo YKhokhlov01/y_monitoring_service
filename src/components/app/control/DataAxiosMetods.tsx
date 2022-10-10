@@ -15,29 +15,35 @@ type DataRender = {
   userId?: number,
   deviceId?: number,
 };
+type ParamGadget = [
+  urlGadget: string,  
+  headerGadget: string,
+  titleGadget: string,
+  method: string,
+]
 interface IDataRender {
   accessToken: string,
-  data: DataRender,
-  method: string,
-  urlGadget: string,
-  headerGadget: string,
-  titleGadget: string
+  dataGadget: DataRender,
+  paramGadget: ParamGadget
 }
 
-const DataAxiosMetods = ({ data, accessToken, method, urlGadget, headerGadget, titleGadget }: IDataRender) => {
-  const { register, handleSubmit } = useForm<DataRender>({
+const DataAxiosMetods = ({ dataGadget, accessToken, paramGadget }: IDataRender) => {
+//Деструктуризации массива
+  let[urlGadget,headerGadget,titleGadget,method] = paramGadget
+//UseForm
+   const { register, handleSubmit } = useForm<DataRender>({
     defaultValues: {
-      id: data.id,
-      name: data.name,
-      comment: data.comment,
-      latitude: data.latitude,
-      longitude: data.longitude,
-      userId: data.userId,
-      deviceId: data.deviceId,
+      id: dataGadget.id,
+      name: dataGadget.name,
+      comment: dataGadget.comment,
+      latitude: dataGadget.latitude,
+      longitude: dataGadget.longitude,
+      userId: dataGadget.userId,
+      deviceId: dataGadget.deviceId,
     }
   });
-
-  const urlPut = ApiUrl + urlGadget + data.id
+// Методы put и patc
+  const urlPut = ApiUrl + urlGadget + dataGadget.id
   const onSubmit: SubmitHandler<DataRender> = async data => {
     await axios({
       method: method,
@@ -56,7 +62,7 @@ const DataAxiosMetods = ({ data, accessToken, method, urlGadget, headerGadget, t
   };
   return (
     <>
-      <h4 className={headerGadget}>{titleGadget}{data.id}</h4>
+      <h4 className={headerGadget}>{titleGadget}{dataGadget.id}</h4>
       <form className="flex flex-col w-full mx-auto p-2 bg-stone-100 gap-y-2 divide-y divide-slate-200 justify-center items-center content-center  "
         onSubmit={handleSubmit(onSubmit)}>
         <RenderElement register={register} attribute={'name'} inputActive={inputActive} inputNoActive={inputNoActive} />

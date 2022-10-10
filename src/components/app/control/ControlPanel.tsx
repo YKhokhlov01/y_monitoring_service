@@ -14,27 +14,53 @@ export interface IDevice {
     userId: number,
   }
 };
+
+type PGadget =[
+  method: string,
+  urlGadget: string,
+  headerGadget: string,
+  titleGadget: string 
+]
+
+
 // url устройств 
-const urlDevice = Endpoints.AUTH.DEVICE;
-const urlSensors = Endpoints.AUTH.SENSORS;
+const urlDevice:string = Endpoints.AUTH.DEVICE;
+const urlSensors: string = Endpoints.AUTH.SENSORS;
 // headers
-const headersSensor = 'text-blue-700 text-lg w-1/12 font-bold ml-8 pt-2 pb-2  bg-slate-100 border-y-2 border-slate-200-200 '
-const titleSensor = 'Сенсор №'
-const headersDevice = 'text-blue-700 text-xl w-11/12 font-extrabold ml-6'
-const titleDevice = 'Устройство №'
+const headersSensor: string = 'text-blue-700 text-lg w-1/12 font-bold ml-8 pt-2 pb-2  bg-slate-100 border-y-2 border-slate-200-200 '
+const titleSensor: string = 'Сенсор №'
+const headersDevice:string = 'text-blue-700 text-xl w-11/12 font-extrabold ml-6'
+const titleDevice:string = 'Устройство №'
+// metods
+const metodDevice:string ='put'
+const metodSensor:string = 'patch'
+
+//девайс
+const paramDevice:PGadget = [
+  urlDevice,
+  headersDevice,
+  titleDevice,
+  metodDevice 
+];
+//сенсор
+const paramSensor:PGadget = [
+  urlSensors,
+  headersSensor,
+  titleSensor,
+  metodSensor
+]; 
 
 const ControlPanel = ({ accessToken, device }: IDevice) => { 
   const urlSensor = ApiUrl + Endpoints.AUTH.DEVICE + device.id + Endpoints.AUTH.SENSORS
   const sensors = useAxiosGet(urlSensor, accessToken)
-  let createSensor = sensors.map((sensor, index) =>
-  <>    
-    <DataAxiosMetods key={index} data={sensor} accessToken={accessToken} method={'patch'} urlGadget={urlSensors} headerGadget={headersSensor} titleGadget={titleSensor} />
-    </>
+  let createSensor = sensors.map((sensor, index) =>  
+    <DataAxiosMetods key={index} dataGadget={sensor} accessToken={accessToken} paramGadget={paramSensor} />
+    
   );
   return (
     
     <div className='flex flex-col w-full pl-2 pr-2 mt-2 mb-2 bg-slate-100 box-border items-start border-x-2 border-b-2 border-slate-200'>      
-      <DataAxiosMetods data={device} accessToken={accessToken} method={'put'} urlGadget={urlDevice} headerGadget={headersDevice} titleGadget={titleDevice}/>
+      <DataAxiosMetods dataGadget={device} accessToken={accessToken} paramGadget={paramDevice}/>
       {createSensor}
       </div>
   )
