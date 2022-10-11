@@ -2,9 +2,11 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import axios from 'axios'
 import ApiUrl from "../../../API/api";
 import RenderElement from "./rendercontrol/RenderElement";
+import  {useContext} from 'react';
+import { AppContext } from '../../hooks/context';
 // Стили для Инпута 
-const inputActive = "text-base font-extrabold text-start text-blue-700 w-9/12 pl-4  h-10";
-const inputNoActive = "text-base font-extrabold text-start text-blue-700 w-9/12 pl-4 h-10 bg-stone-100 disabled:opacity-75 outline-none "
+const inputNoActive = "text-base font-extrabold text-start text-blue-700 w-10/12 pl-4  h-10";
+const inputActive = "text-base font-extrabold text-start text-blue-700 w-10/12 pl-4 h-10 bg-stone-100 disabled:opacity-75 outline-none "
 
 type DataRender = {
   id: number,
@@ -29,7 +31,9 @@ interface IDataRender {
 
 const DataAxiosMetods = ({ dataGadget, accessToken, paramGadget }: IDataRender) => {
 //Деструктуризации массива
-  let[urlGadget,headerGadget,titleGadget,method] = paramGadget
+  let[urlGadget, headerGadget, titleGadget, method] = paramGadget;
+  const { setsuccessEdit } = useContext(AppContext)
+
 //UseForm
    const { register, handleSubmit } = useForm<DataRender>({
     defaultValues: {
@@ -44,6 +48,7 @@ const DataAxiosMetods = ({ dataGadget, accessToken, paramGadget }: IDataRender) 
   });
 // Методы put и patc
   const urlPut = ApiUrl + urlGadget + dataGadget.id
+  
   const onSubmit: SubmitHandler<DataRender> = async data => {
     await axios({
       method: method,
@@ -54,12 +59,14 @@ const DataAxiosMetods = ({ dataGadget, accessToken, paramGadget }: IDataRender) 
       data
     }).then(function (response) {
       const allData = response.data
-      //  setDevice(response.data)
+       setsuccessEdit(response);      
       console.log('allData', allData)
     }).catch(function (error) {
       console.log(error.response.data);
     })
   };
+
+
   return (
     <>
       <h4 className={headerGadget}>{titleGadget}{dataGadget.id}</h4>
@@ -67,6 +74,7 @@ const DataAxiosMetods = ({ dataGadget, accessToken, paramGadget }: IDataRender) 
         onSubmit={handleSubmit(onSubmit)}>
         <RenderElement register={register} attribute={'name'} inputActive={inputActive} inputNoActive={inputNoActive} />
         <RenderElement register={register} attribute={'comment'} inputActive={inputActive} inputNoActive={inputNoActive} />
+        
       </form>
     </>
   )

@@ -1,8 +1,7 @@
 import axios from 'axios'
 import  {useState, useEffect } from 'react';
 
-
-const useAxiosGet =  (url, accessToken) => {
+const useAxiosGet =  (url, accessToken, Edit) => {
   const defaultData = []
   const [data, setData] = useState(defaultData); 
     // Запрос на получение сенсора кокретного устройства
@@ -22,7 +21,7 @@ const useAxiosGet =  (url, accessToken) => {
       })      
     }; 
     fetchData() 
-   }, [url, accessToken])   
+   }, [url, accessToken, Edit])   
   return data   
 }
 
