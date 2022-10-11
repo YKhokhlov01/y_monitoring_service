@@ -4,9 +4,6 @@ import ApiUrl from "../../../API/api";
 import RenderElement from "./rendercontrol/RenderElement";
 import  {useContext} from 'react';
 import { AppContext } from '../../hooks/context';
-// Стили для Инпута 
-const inputNoActive = "text-base font-extrabold text-start text-blue-700 w-10/12 pl-4  h-10";
-const inputActive = "text-base font-extrabold text-start text-blue-700 w-10/12 pl-4 h-10 bg-stone-100 disabled:opacity-75 outline-none "
 
 type DataRender = {
   id: number,
@@ -22,18 +19,20 @@ type ParamGadget = [
   headerGadget: string,
   titleGadget: string,
   method: string,
-]
+];
 interface IDataRender {
   accessToken: string,
   dataGadget: DataRender,
   paramGadget: ParamGadget
-}
+};
+// Стили для Инпута 
+const inputNoActive = "text-base font-extrabold text-start text-blue-700 w-10/12 pl-4  h-10";
+const inputActive = "text-base font-extrabold text-start text-blue-700 w-10/12 pl-4 h-10 bg-stone-100 disabled:opacity-75 outline-none "
 
 const DataAxiosMetods = ({ dataGadget, accessToken, paramGadget }: IDataRender) => {
 //Деструктуризации массива
   let[urlGadget, headerGadget, titleGadget, method] = paramGadget;
-  const { setsuccessEdit } = useContext(AppContext)
-
+  const { setsuccessEdit } = useContext(AppContext);
 //UseForm
    const { register, handleSubmit } = useForm<DataRender>({
     defaultValues: {
@@ -47,8 +46,7 @@ const DataAxiosMetods = ({ dataGadget, accessToken, paramGadget }: IDataRender) 
     }
   });
 // Методы put и patc
-  const urlPut = ApiUrl + urlGadget + dataGadget.id
-  
+  const urlPut = ApiUrl + urlGadget + dataGadget.id  
   const onSubmit: SubmitHandler<DataRender> = async data => {
     await axios({
       method: method,
@@ -65,16 +63,13 @@ const DataAxiosMetods = ({ dataGadget, accessToken, paramGadget }: IDataRender) 
       console.log(error.response.data);
     })
   };
-
-
   return (
     <>
       <h4 className={headerGadget}>{titleGadget}{dataGadget.id}</h4>
       <form className="flex flex-col w-full mx-auto p-2 bg-stone-100 gap-y-2 divide-y divide-slate-200 justify-center items-center content-center  "
         onSubmit={handleSubmit(onSubmit)}>
         <RenderElement register={register} attribute={'name'} inputActive={inputActive} inputNoActive={inputNoActive} />
-        <RenderElement register={register} attribute={'comment'} inputActive={inputActive} inputNoActive={inputNoActive} />
-        
+        <RenderElement register={register} attribute={'comment'} inputActive={inputActive} inputNoActive={inputNoActive} />        
       </form>
     </>
   )

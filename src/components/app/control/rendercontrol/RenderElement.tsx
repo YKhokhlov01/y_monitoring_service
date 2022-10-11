@@ -1,19 +1,8 @@
 import { useState } from 'react';
-import ButtonRender from './ButtonRender';
+import ButtonRender from '../../../../elements/ButtonRender';
 import { ArrowUpOnSquareIcon, WrenchIcon, XCircleIcon } from '@heroicons/react/24/outline'
 import { placement } from "@material-tailwind/react/types/components/menu";
 import { content } from "@material-tailwind/react/types/components/popover";
-//import { UseFormRegister } from 'react-hook-form'
-/*
-type Device = {
-  id: number
-  name: string
-  comment: string
-  latitude: number
-  longitude: number
-  userId: number
-  deviceId: number
-  };*/
 
 interface IRenderElement {
   register: any //UseFormRegister<Device>,
@@ -21,17 +10,15 @@ interface IRenderElement {
   inputActive: string,
   inputNoActive: string,
 };
-
 type Arg = [
   type: "button" | "submit",
   Content: content,
   Placement: placement,
   icons: React.ReactNode
-]
+];
 
 // Стили для кнопоки
 // Кнопка редактирование
-//const ToolipEdit = 'text-blue-400 text-base bg-stone-100'
 const ContentEdit = 'Редактировать'
 const PlacementEdit = 'left'
 const IconEdit = <WrenchIcon className="h-5 w-5 text-blue-500 group-hover:text-blue-400  " aria-hidden="true" />
@@ -43,12 +30,10 @@ const Edit: Arg = [
   IconEdit,
 ];
 // Кнопка сохранение и отправка
-//const ToolipEdit = 'text-blue-400 text-base bg-stone-100'
 const ContentSave = 'Сохранить и отправить'
 const PlacementSave = 'right'
 const IconSave = <ArrowUpOnSquareIcon className="h-5 w-5 text-blue-500 group-hover:text-blue-400  " aria-hidden="true" />
 const TypeSave = "submit"
-
 const Save: Arg = [
   TypeSave,
   ContentSave,
@@ -60,13 +45,12 @@ const ContentUndo = 'Отменить'
 const PlacementUndo = 'right'
 const IconUndo = <XCircleIcon className="h-5 w-5 text-blue-500 group-hover:text-blue-400  " aria-hidden="true" />
 const TypeUndo = "button"
-
 const Undo: Arg = [
   TypeUndo,
   ContentUndo,
   PlacementUndo,
   IconUndo,
-]
+];
 
 const RenderElement = ({ register, attribute, inputActive, inputNoActive }: IRenderElement) => {
   const [editTrue, seteditTrue] = useState(false);

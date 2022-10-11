@@ -3,24 +3,22 @@ import { placement } from "@material-tailwind/react/types/components/menu";
 import { content } from "@material-tailwind/react/types/components/popover";
 import { SetStateAction, Dispatch } from 'react';
 
-// seteditTrue={seteditTrue} editTrue={editTrue} type={"click"} Content={ContentEdit} Placement={PlacementEdit} icons ={IconEdit}
 type Arg = [
   type: "button" | "submit",
   Content: content,
   Placement: placement,
   icons: React.ReactNode
-]
+];
 
 interface IButtonRender {
   editTrue: boolean,
   seteditTrue: Dispatch<SetStateAction<boolean>>,
   arg: Arg,
-}
-
+};
 
 const ButtonRender = ({ seteditTrue, editTrue, arg }: IButtonRender) => {
   let [type, Content, Placement, icons] = arg
- 
+
   return (
 
     <Tooltip className=' text-blue-400 text-base bg-stone-100' content={Content} placement={Placement}>
@@ -33,8 +31,6 @@ const ButtonRender = ({ seteditTrue, editTrue, arg }: IButtonRender) => {
         </span>
       </Button>
     </Tooltip>
-
-
   )
 }
 
