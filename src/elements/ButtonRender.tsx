@@ -9,7 +9,6 @@ type Arg = [
   Placement: placement,
   icons: React.ReactNode
 ];
-
 interface IButtonRender {
   editTrue: boolean,
   seteditTrue: Dispatch<SetStateAction<boolean>>,
@@ -18,9 +17,7 @@ interface IButtonRender {
 
 const ButtonRender = ({ seteditTrue, editTrue, arg }: IButtonRender) => {
   let [type, Content, Placement, icons] = arg
-
   return (
-
     <Tooltip className=' text-blue-400 text-base bg-stone-100' content={Content} placement={Placement}>
       <Button
         type={type}
