@@ -2,6 +2,7 @@ import { IAccessDevice } from "../../../model";
 import ControlPanel from "./ControlPanel";
 
 const Control = ({ accessToken, devices }: IAccessDevice) => {
+  console.log('devices', devices)
   let createDevices = devices.map((device, index) =>
     <ControlPanel key={index} device={device} accessToken={accessToken} />
   );

@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Auth from './components/app/auth/Auth';
 import ServiceApp from './components/app/ServiceApp';
 import ErrorAuth from './components/app/ErrorAuth';
+import Home from './components/Home';
 
 function App() {
   // State для хранения токена и имени
@@ -37,11 +38,11 @@ function App() {
     }, [setUsername, username]);
 
   return (
-    <div className = "App flex container flex-col h-full  min-h-screen ">
-    <div className = 'flex bg-blue-800 min-h-[8vh] w-screen'>
+    <div className = "App flex container flex-col h-full w-12/12 box-border  min-h-screen ">
+    <div className = 'flex bg-blue-800 min-h-[8vh] w-screen box-border '>
       <Navigation />
     </div >
-    <div className = 'flex min-h-[83vh] w-screen'>
+    <div className = 'flex min-h-[83vh] w-screen box-border '>
       <Routes>
         <Route path = "/login" element = {
         <Auth 
@@ -51,15 +52,17 @@ function App() {
         setUsername = {setUsername}/>
          }/>   
                   
-        {accessToken.length > 0 ? (
+        {accessToken.length > 0 ? (<>
+          <Route path = "/" element = {<Home/>}/>
          <Route path = "/*" element = {<ServiceApp accessToken={accessToken}/>}/>
+         </>
         ) : (
           <Route path = "/*" element = {<ErrorAuth />}/>
         )}   
         
        </Routes>      
     </div>
-    <div className="columns-12 h-[8%] bg-blue-800 min-h-[8vh] w-screen">
+    <div className="columns-12 h-[8%] bg-blue-800 min-h-[8vh] w-screen box-border  ">
       <Footer />
     </div>
   </div>

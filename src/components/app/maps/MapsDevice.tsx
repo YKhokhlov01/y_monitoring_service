@@ -10,6 +10,7 @@ interface IDeviceMaps {
   }
   
   const MapsDevice = ({devices}: IDeviceMaps ) => {
+    console.log('devices', devices)
     return (
       <div>Maps</div>
     )

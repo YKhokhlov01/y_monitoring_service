@@ -1,3 +1,5 @@
+import { SetStateAction, Dispatch } from 'react';
+
 // Интерфейсы для TS
 export interface IAccessToken {
   accessToken: string;
@@ -16,6 +18,7 @@ export interface IDevices {
 export interface IAccessDevice {
   accessToken: string;
   devices: IDevices[];
+  setId?: Dispatch<SetStateAction<number>>
 }
 
 export interface ISensor {
