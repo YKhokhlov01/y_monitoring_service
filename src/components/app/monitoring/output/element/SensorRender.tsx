@@ -14,8 +14,8 @@ const SensorRender = ({ sensor, onClick }: ISensorRender) => {
             onClick={() => { onClick(sensor.id) }} >
               <div className="  flex flex-row  items-center justify-start w-6/12  ">  
             <span className=" flex  mr-2 "><Cog6ToothIcon className="h-8  text-blue-500 group-hover:text-blue-400  " aria-hidden="true" />  </span>
-            <span className="font-bold text-base text-start  text-blue-500 mr-2 ">{sensor.name}</span>
-            <span className='text-sm font-medium text-start text-blue-500  mr-2'>"{sensor.comment}"</span>
+            <span className="font-bold text-base text-center  text-blue-500 mr-2 ">{sensor.name}</span>
+            <span className='text-sm font-medium text-center text-blue-500  mr-2'>"{sensor.comment}"</span>
             </div>
             <SensorRealData id={sensor.id} />
         </div>

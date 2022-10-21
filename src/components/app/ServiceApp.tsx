@@ -26,7 +26,7 @@ const ServiceApp = ({ accessToken }: Access) => {
       <Routes >
         <Route path="home" element={<Monitoring accessToken={accessToken} devices={devices} />} />
         <Route path="control" element={<Control accessToken={accessToken} devices={devices} />} />
-        <Route path="maps" element={<MapsDevice devices={devices} />} />
+        <Route path="map" element={<MapsDevice devices={devices} />} />
       </Routes>
     </AppContext.Provider>
   )

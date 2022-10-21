@@ -38,7 +38,7 @@ function App() {
     }, [setUsername, username]);
 
   return (
-    <div className = "App flex container flex-col h-full w-12/12 box-border  min-h-screen ">
+    <div className = "App flex container flex-col h-full w-screen box-border  ">
     <div className = 'flex bg-blue-800 min-h-[8vh] w-screen box-border '>
       <Navigation />
     </div >
