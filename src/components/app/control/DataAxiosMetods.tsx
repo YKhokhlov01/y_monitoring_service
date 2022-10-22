@@ -28,7 +28,8 @@ interface IDataRender {
 // Стили для Инпута 
 const inputNoActive = "text-base font-extrabold text-start text-blue-700 w-10/12 pl-4  h-10";
 const inputActive = "text-base font-extrabold text-start text-blue-700 w-10/12 pl-4 h-10 bg-stone-100 disabled:opacity-75 outline-none "
-
+const inputNoActiveCom = "text-base font-bold  italic text-start text-blue-600 w-10/12 pl-4  h-10";
+const inputActiveCom = "text-base font-bold italic  text-start text-blue-400 w-10/12 pl-4 h-10 bg-stone-100 disabled:opacity-75 outline-none "
 const DataAxiosMetods = ({ dataGadget, accessToken, paramGadget }: IDataRender) => {
 //Деструктуризации массива
   let[urlGadget, headerGadget, titleGadget, method] = paramGadget;
@@ -45,7 +46,7 @@ const DataAxiosMetods = ({ dataGadget, accessToken, paramGadget }: IDataRender) 
       deviceId: dataGadget.deviceId,
     }
   });
-// Методы put и patc
+// Методы put и patch
   const urlPut = ApiUrl + urlGadget + dataGadget.id  
   const onSubmit: SubmitHandler<DataRender> = async data => {
     await axios({
@@ -69,7 +70,7 @@ const DataAxiosMetods = ({ dataGadget, accessToken, paramGadget }: IDataRender) 
       <form className="flex flex-col w-full mx-auto p-2 bg-stone-100 gap-y-2 divide-y divide-slate-200 justify-center items-center content-center  "
         onSubmit={handleSubmit(onSubmit)}>
         <RenderElement register={register} attribute={'name'} inputActive={inputActive} inputNoActive={inputNoActive} />
-        <RenderElement register={register} attribute={'comment'} inputActive={inputActive} inputNoActive={inputNoActive} />        
+        <RenderElement register={register} attribute={'comment'} inputActive={inputActiveCom} inputNoActive={inputNoActiveCom} />        
       </form>
     </>
   )

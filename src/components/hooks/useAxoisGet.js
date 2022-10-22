@@ -6,8 +6,8 @@ const useAxiosGet =  (url, accessToken, Edit) => {
   const [data, setData] = useState(defaultData); 
     // Запрос на получение сенсора кокретного устройства
      useEffect(() => {    
-     async function fetchData() {       
-      await axios({
+      function fetchData() {       
+       axios({
          method: 'get',
          url: url,
          headers: {

@@ -2,6 +2,7 @@ import ApiUrl from '../../../API/api';
 import Endpoints from '../../../API/endpoints';
 import useAxiosGet from '../../hooks/useAxoisGet';
 import DataAxiosMetods from './DataAxiosMetods';
+import  {useMemo } from 'react';
 
 export interface IDevice {
   accessToken: string,
@@ -49,7 +50,8 @@ const paramSensor: PGadget = [
 
 const ControlPanel = ({ accessToken, device }: IDevice) => {
   const urlSensor = ApiUrl + Endpoints.AUTH.DEVICE + device.id + Endpoints.AUTH.SENSORS
-  const sensors = useAxiosGet(urlSensor, accessToken, device)
+  const sensors = useAxiosGet(urlSensor, accessToken, device);
+  useMemo(() => sensors, [sensors])
   let createSensor = sensors.map((sensor, index) =>
     <DataAxiosMetods key={index} dataGadget={sensor} accessToken={accessToken} paramGadget={paramSensor} />
   );
