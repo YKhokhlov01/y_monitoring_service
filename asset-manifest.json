@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/y_monitoring/static/css/main.003d2015.css",
-    "main.js": "/y_monitoring/static/js/main.e7bb86a2.js",
-    "index.html": "/y_monitoring/index.html",
-    "main.003d2015.css.map": "/y_monitoring/static/css/main.003d2015.css.map",
-    "main.e7bb86a2.js.map": "/y_monitoring/static/js/main.e7bb86a2.js.map"
+    "main.css": "/y_monitoring_service/static/css/main.003d2015.css",
+    "main.js": "/y_monitoring_service/static/js/main.e7bb86a2.js",
+    "index.html": "/y_monitoring_service/index.html",
+    "main.003d2015.css.map": "/y_monitoring_service/static/css/main.003d2015.css.map",
+    "main.e7bb86a2.js.map": "/y_monitoring_service/static/js/main.e7bb86a2.js.map"
   },
   "entrypoints": [
     "static/css/main.003d2015.css",
