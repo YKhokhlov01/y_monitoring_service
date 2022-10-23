@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/y_monitoring_service/static/css/main.00879162.css",
-    "main.js": "/y_monitoring_service/static/js/main.5a057b81.js",
+    "main.js": "/y_monitoring_service/static/js/main.d1ac06dc.js",
     "index.html": "/y_monitoring_service/index.html",
     "main.00879162.css.map": "/y_monitoring_service/static/css/main.00879162.css.map",
-    "main.5a057b81.js.map": "/y_monitoring_service/static/js/main.5a057b81.js.map"
+    "main.d1ac06dc.js.map": "/y_monitoring_service/static/js/main.d1ac06dc.js.map"
   },
   "entrypoints": [
     "static/css/main.00879162.css",
-    "static/js/main.5a057b81.js"
+    "static/js/main.d1ac06dc.js"
   ]
 }
