@@ -26,10 +26,10 @@ interface IDataRender {
   paramGadget: ParamGadget
 };
 // Стили для Инпута 
-const inputNoActive = "text-base font-extrabold text-start text-blue-700 w-10/12 pl-4  h-10";
-const inputActive = "text-base font-extrabold text-start text-blue-700 w-10/12 pl-4 h-10 bg-stone-100 disabled:opacity-75 outline-none "
-const inputNoActiveCom = "text-base font-bold  italic text-start text-blue-600 w-10/12 pl-4  h-10";
-const inputActiveCom = "text-base font-bold italic  text-start text-blue-400 w-10/12 pl-4 h-10 bg-stone-100 disabled:opacity-75 outline-none "
+const inputNoActive = "text-base font-extrabold text-start text-indigo-500 w-10/12 pl-4  h-10";
+const inputActive = "text-base font-extrabold text-start text-indigo-500 w-10/12 pl-4 h-10 bg-stone-100 disabled:opacity-75 outline-none "
+const inputNoActiveCom = "text-base font-bold  italic text-start text-indigo-500 w-10/12 pl-4  h-10";
+const inputActiveCom = "text-base font-bold italic  text-start text-indigo-500 w-10/12 pl-4 h-10 bg-stone-100 disabled:opacity-75 outline-none "
 const DataAxiosMetods = ({ dataGadget, accessToken, paramGadget }: IDataRender) => {
 //Деструктуризации массива
   let[urlGadget, headerGadget, titleGadget, method] = paramGadget;

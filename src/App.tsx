@@ -39,7 +39,7 @@ function App() {
 
   return (
     <div className = "App flex container flex-col h-full w-screen box-border  ">
-    <div className = 'flex bg-blue-800 min-h-[8vh] w-screen box-border '>
+    <div className = 'flex bg-blue-500 min-h-[8vh] w-screen box-border '>
       <Navigation />
     </div >
     <div className = 'flex min-h-[83vh] w-screen box-border '>
@@ -62,7 +62,7 @@ function App() {
         
        </Routes>      
     </div>
-    <div className="columns-12 h-[8%] bg-blue-800 min-h-[8vh] w-screen box-border  ">
+    <div className="columns-12 h-[8%] bg-blue-500 min-h-[8vh] w-screen box-border  ">
       <Footer />
     </div>
   </div>
