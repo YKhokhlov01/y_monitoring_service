@@ -12,7 +12,7 @@ const AuthHead = ({head, username}:IHead) => {
      login = 'Максим' 
     } 
   return (
-    <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-blue-600">
+    <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-blue-500">
       {head} {login}
     </h2> 
   )
